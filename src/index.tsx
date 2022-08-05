@@ -4,7 +4,8 @@ import { Provider } from 'react-redux'
 import { store } from './store'
 import App from './App'
 
-const container = document.getElementById('root')!
+const container = document.getElementById('root')
+if (container === null) throw new Error('Can not find root element')
 const root = createRoot(container)
 
 root.render(
