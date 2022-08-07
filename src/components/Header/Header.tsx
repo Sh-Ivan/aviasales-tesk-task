@@ -1,7 +1,12 @@
 import React from 'react'
+import Logo from './Logo/Logo'
 
 const Header = () => {
-  return <div></div>
+  return (
+    <div>
+      <Logo />
+    </div>
+  )
 }
 
 export default Header
