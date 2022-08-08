@@ -1,9 +1,10 @@
 import React from 'react'
 import Button from '../../Shared/Button/Button'
+import './SortingBlock.scss'
 
 const SortingBlock = () => {
   return (
-    <div>
+    <div className='sorting-block'>
       <Button />
       <Button />
       <Button />
