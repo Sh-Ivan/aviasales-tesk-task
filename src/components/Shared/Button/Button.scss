@@ -1,0 +1,28 @@
+@import '../../../styles/variables';
+
+.button-primary {
+  background-color: #fff;
+  color: $text-primary;
+  text-transform: uppercase;
+  height: 50px;
+  cursor: pointer;
+
+  &.selected {
+    background-color: $blue-color;
+    color: #fff;
+  }
+
+  &:hover {
+    background-color: $hovered-color;
+  }
+
+  &:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  &:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}

@@ -7,7 +7,7 @@ import './App.scss'
 const App: FC = () => (
   <div className='page-layout'>
     <div className='container'>
-      <div className='row'>
+      <div className='col'>
         <div className='col'>
           <Header />
         </div>
