@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/sh-ivan.github.io/aviasales-tesk-task/static/css/main.7492b1e5.css",
+    "main.js": "/sh-ivan.github.io/aviasales-tesk-task/static/js/main.ece77df5.js",
+    "static/media/Logo.svg": "/sh-ivan.github.io/aviasales-tesk-task/static/media/Logo.c09d68f27ec1b9b3f70787e2f5a34210.svg",
+    "index.html": "/sh-ivan.github.io/aviasales-tesk-task/index.html",
+    "main.7492b1e5.css.map": "/sh-ivan.github.io/aviasales-tesk-task/static/css/main.7492b1e5.css.map",
+    "main.ece77df5.js.map": "/sh-ivan.github.io/aviasales-tesk-task/static/js/main.ece77df5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7492b1e5.css",
+    "static/js/main.ece77df5.js"
+  ]
+}
