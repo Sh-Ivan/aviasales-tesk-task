@@ -7,7 +7,7 @@ const LeftPanel = () => {
   return (
     <div className='left-panel'>
       <CheckBoxBlock />
-      <RadioButtonBlock />
+      <RadioButtonBlock elements={['Все', 'S7 Airlines', 'Xiamen Air']} />
     </div>
   )
 }

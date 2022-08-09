@@ -2,15 +2,13 @@
 
 .button-primary {
   background-color: #fff;
+  display: block;
   color: $text-primary;
   text-transform: uppercase;
+  border: 1px solid $secondary-border;
+  padding: 0;
   height: 50px;
   cursor: pointer;
-
-  &.selected {
-    background-color: $blue-color;
-    color: #fff;
-  }
 
   &:hover {
     background-color: $hovered-color;
@@ -24,5 +22,15 @@
   &:last-child {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+  }
+}
+
+.button-selected {
+  background-color: $blue-color;
+  color: #fff;
+
+  &:hover {
+    background-color: $blue-color;
+    color: #fff;
   }
 }

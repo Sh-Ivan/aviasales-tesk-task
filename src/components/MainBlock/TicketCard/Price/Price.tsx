@@ -1,7 +1,12 @@
 import React from 'react'
+import './Price.scss'
 
-const Price = () => {
-  return <div>Price</div>
+interface PriceProps {
+  price: string
+}
+
+const Price = ({ price }: PriceProps) => {
+  return <div className='ticket-price'>{price}</div>
 }
 
 export default Price

@@ -11,7 +11,9 @@ const MainBlock = () => {
       {[1, 2, 3, 4, 5].map((ticket) => {
         return <TicketCard key={ticket} />
       })}
-      <Button />
+      <div className='bottom-button'>
+        <Button buttonText='ПОКАЗАТЬ ЕЩЕ 5 БИЛЕТОВ' active={true} />
+      </div>
     </div>
   )
 }

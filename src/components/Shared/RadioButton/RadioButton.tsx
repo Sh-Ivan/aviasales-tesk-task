@@ -1,7 +1,16 @@
 import React from 'react'
+import './RadioButton.scss'
 
-const RadioButton = () => {
-  return <div>RadioButton</div>
+interface RadioButtonProps {
+  buttonName: string
+}
+
+const RadioButton = ({ buttonName }: RadioButtonProps) => {
+  return (
+    <div className='radio-button'>
+      <input type='radio' /> <label>{buttonName}</label>
+    </div>
+  )
 }
 
 export default RadioButton
