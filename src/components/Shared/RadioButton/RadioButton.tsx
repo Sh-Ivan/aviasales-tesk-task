@@ -3,12 +3,20 @@ import './RadioButton.scss'
 
 interface RadioButtonProps {
   buttonName: string
+  isChecked?: boolean
+  id: number
+  handleClick: (e: React.ChangeEvent, id: number) => void
 }
 
-const RadioButton = ({ buttonName }: RadioButtonProps) => {
+const RadioButton = ({ buttonName, isChecked, handleClick, id }: RadioButtonProps) => {
+  const handleCheckboxChange = (e: React.ChangeEvent) => {
+    handleClick(e, id)
+  }
+
   return (
     <div className='radio-button'>
-      <input type='radio' /> <label>{buttonName}</label>
+      <input type='radio' checked={isChecked} onChange={handleCheckboxChange} />{' '}
+      <label>{buttonName}</label>
     </div>
   )
 }

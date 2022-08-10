@@ -1,18 +1,24 @@
 import React from 'react'
+import { ITransfers } from '../MainBlock'
 import AviaLogo from './AviaLogo/AviaLogo'
 import Price from './Price/Price'
 import './TicketCard.scss'
 import TicketInfo from './TicketInfo/TicketInfo'
 
-const TicketCard = () => {
+interface TicketCardProps {
+  image: string
+  transfers: ITransfers
+}
+
+const TicketCard = ({ image, transfers }: TicketCardProps) => {
   return (
     <div className='ticket-card'>
       <div className='row'>
-        <div className='col'>
+        <div className='col align-self-center'>
           <Price price='13 400 Р' />
         </div>
         <div className='col'>
-          <AviaLogo />
+          <AviaLogo image={image} />
         </div>
       </div>
       <div className='row'>
@@ -32,12 +38,12 @@ const TicketCard = () => {
             <TicketInfo type='data' text='21ч 15м' />
           </div>
         </div>
-        <div className='col'>
+        <div className='col align-self-center'>
           <div className='row'>
-            <TicketInfo type='title' text='2 ПЕРЕСАДКИ' />
+            <TicketInfo type='title' text={transfers.numTransfers} />
           </div>
           <div className='row'>
-            <TicketInfo type='data' text='HKG, JNB' />
+            <TicketInfo type='data' text={transfers.listTransfers} />
           </div>
         </div>
       </div>

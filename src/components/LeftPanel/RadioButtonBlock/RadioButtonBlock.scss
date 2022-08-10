@@ -1,6 +1,10 @@
 .radio-button-block {
-  padding: 20px 20px 25px;
+  padding: 20px 0px 25px;
   background: #ffffff;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
+
+  & .header-text {
+    padding-bottom: 10px;
+  }
 }

@@ -1,18 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BlockHeader from '../../Shared/BlockHeader/BlockHeader'
 import RadioButton from '../../Shared/RadioButton/RadioButton'
 import './RadioButtonBlock.scss'
 
-interface RadioButtonBlockProps {
-  elements: string[]
+export interface IAirlines {
+  id: number
+  name: string
 }
 
-const RadioButtonBlock = ({ elements }: RadioButtonBlockProps) => {
+const airlines: IAirlines[] = [
+  {
+    id: 1,
+    name: 'Все',
+  },
+  {
+    id: 2,
+    name: 'S7 Airlines',
+  },
+  {
+    id: 3,
+    name: 'Xiamen Air',
+  },
+]
+
+const RadioButtonBlock = () => {
+  const [checked, setChecked] = useState(airlines[2].id)
+
+  const handleRadioButtonChange = (e: React.ChangeEvent, id: number) => {
+    setChecked(id)
+  }
+
   return (
     <div className='radio-button-block'>
       <BlockHeader headerText='КОМПАНИЯ' />
-      {elements.map((element) => {
-        return <RadioButton key={element} buttonName={element} />
+      {airlines.map((airline) => {
+        return (
+          <RadioButton
+            key={airline.id}
+            buttonName={airline.name}
+            isChecked={airline.id === checked}
+            id={airline.id}
+            handleClick={handleRadioButtonChange}
+          />
+        )
       })}
     </div>
   )

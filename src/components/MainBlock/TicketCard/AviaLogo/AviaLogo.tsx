@@ -1,7 +1,16 @@
 import React from 'react'
+import './AviaLogo.scss'
 
-const AviaLogo = () => {
-  return <div>AviaLogo</div>
+interface AviaLogoProps {
+  image: string
+}
+
+const AviaLogo = ({ image }: AviaLogoProps) => {
+  return (
+    <div className='avia-logo-wrapper'>
+      <img src={image} alt='Avia logo' />
+    </div>
+  )
 }
 
 export default AviaLogo

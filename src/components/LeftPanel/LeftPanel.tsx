@@ -5,10 +5,10 @@ import './LeftPanel.scss'
 
 const LeftPanel = () => {
   return (
-    <div className='left-panel'>
+    <aside className='left-panel'>
       <CheckBoxBlock />
-      <RadioButtonBlock elements={['Все', 'S7 Airlines', 'Xiamen Air']} />
-    </div>
+      <RadioButtonBlock />
+    </aside>
   )
 }
 

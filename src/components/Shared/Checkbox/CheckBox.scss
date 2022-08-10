@@ -1,0 +1,58 @@
+@import '/src//styles/variables';
+
+.filters-block {
+  width: 232px;
+  height: 252px;
+  margin: 10px;
+  margin-top: 0;
+  box-sizing: border-box;
+}
+.filters input {
+  width: 20px;
+  height: 20px;
+}
+.filters__header {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.filters__item:hover {
+  background: $hovered-color;
+}
+.checkbox {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 20px;
+  cursor: pointer;
+}
+.checkbox__input {
+  display: none;
+}
+.checkbox__border {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 20px;
+  width: 20px;
+  border: 1px solid $blue-color;
+  box-sizing: border-box;
+  border-radius: 2px;
+  position: relative;
+  top: 5px;
+  margin-right: 10px;
+}
+.checkbox__border.checked {
+  border: 1px solid #2196f3;
+}
+.checkbox__border.checked::after {
+  content: '';
+  display: block;
+  background: url('./Shape.png') no-repeat;
+  height: 8px;
+  width: 12px;
+  position: relative;
+  top: 5px;
+  left: 3px;
+}

@@ -4,11 +4,22 @@ import './Button.scss'
 interface buttonProps {
   buttonText?: string
   active?: boolean
+  name?: string
+  handleClick: (e: React.MouseEvent, name: string) => void
 }
 
-const Button = ({ buttonText = '', active = false }: buttonProps) => {
+const Button = ({ buttonText = '', active = false, handleClick, name = '' }: buttonProps) => {
   const classNames = 'button-primary' + (active ? ' button-selected' : '')
-  return <button className={classNames}>{buttonText}</button>
+
+  const handleButtonClick = (e: React.MouseEvent) => {
+    handleClick(e, name)
+  }
+
+  return (
+    <button className={classNames} onClick={handleButtonClick}>
+      {buttonText}
+    </button>
+  )
 }
 
 export default Button
