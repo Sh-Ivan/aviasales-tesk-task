@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/aviasales-tesk-task/static/css/main.7492b1e5.css",
-    "main.js": "/aviasales-tesk-task/static/js/main.9869420c.js",
-    "static/media/Logo.svg": "/aviasales-tesk-task/static/media/Logo.c09d68f27ec1b9b3f70787e2f5a34210.svg",
+    "main.css": "/aviasales-tesk-task/static/css/main.bd16a81a.css",
+    "main.js": "/aviasales-tesk-task/static/js/main.138cc56d.js",
+    "static/media/Logo.svg": "/aviasales-tesk-task/static/media/Logo.fbec1d9cb9e517753f7292c1cca296c4.svg",
     "index.html": "/aviasales-tesk-task/index.html",
-    "main.7492b1e5.css.map": "/aviasales-tesk-task/static/css/main.7492b1e5.css.map",
-    "main.9869420c.js.map": "/aviasales-tesk-task/static/js/main.9869420c.js.map"
+    "main.bd16a81a.css.map": "/aviasales-tesk-task/static/css/main.bd16a81a.css.map",
+    "main.138cc56d.js.map": "/aviasales-tesk-task/static/js/main.138cc56d.js.map"
   },
   "entrypoints": [
-    "static/css/main.7492b1e5.css",
-    "static/js/main.9869420c.js"
+    "static/css/main.bd16a81a.css",
+    "static/js/main.138cc56d.js"
   ]
 }
