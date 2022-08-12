@@ -1,46 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '../Shared/Button/Button'
 import SortingBlock from './SortingBlock/SortingBlock'
 import TicketCard from './TicketCard/TicketCard'
 import './MainBlock.scss'
-import S7Logo from './img/S7 Logo.png'
-import XiamenAir from './img/XiamenAir Logo.png'
-
-export interface ITransfers {
-  numTransfers: string
-  listTransfers: string
-}
-
-const transfers: ITransfers[] = [
-  {
-    numTransfers: 'БЕЗ ПЕРЕСАДОК',
-    listTransfers: '',
-  },
-  {
-    numTransfers: '2 ПЕРЕСАДКИ',
-    listTransfers: 'HKG, JNB',
-  },
-]
+import { useAppSelector } from '../../store/hooks'
+import { ticketSelector } from '../../store/slices/ticketSlice'
 
 const MainBlock = () => {
-  const handleButtonClick = () => {
-    return
+  const [ticketNum, setTicketNum] = useState(5)
+  const { tickets, isLoading, error } = useAppSelector(ticketSelector)
+
+  const handleAddButtonClick = () => {
+    setTicketNum(ticketNum + 5)
   }
+
+  if (isLoading) return <div className='main-block'>Is loading...</div>
+  if (error) return <div className='main-block'>{error}</div>
 
   return (
     <div className='main-block'>
       <SortingBlock />
-      {[1, 2, 3, 4, 5, 6].map((ticket, index) => {
-        return (
-          <TicketCard
-            key={ticket}
-            image={index % 2 !== 0 ? XiamenAir : S7Logo}
-            transfers={index == 0 ? transfers[0] : transfers[1]}
-          />
-        )
+      {tickets.slice(0, ticketNum).map((ticket) => {
+        return <TicketCard key={ticket.id} ticket={ticket} />
       })}
       <div className='bottom-button'>
-        <Button buttonText='ПОКАЗАТЬ ЕЩЕ 5 БИЛЕТОВ' active={true} handleClick={handleButtonClick} />
+        <Button
+          buttonText='ПОКАЗАТЬ ЕЩЕ 5 БИЛЕТОВ'
+          active={true}
+          handleClick={handleAddButtonClick}
+        />
       </div>
     </div>
   )

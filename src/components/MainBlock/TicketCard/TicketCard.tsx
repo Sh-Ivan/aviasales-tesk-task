@@ -1,21 +1,26 @@
 import React from 'react'
-import { ITransfers } from '../MainBlock'
+import { useAppSelector } from '../../../store/hooks'
+import { companySelector } from '../../../store/slices/companySlice'
+import { Ticket } from '../../../types/Ticket'
 import AviaLogo from './AviaLogo/AviaLogo'
 import Price from './Price/Price'
 import './TicketCard.scss'
 import TicketInfo from './TicketInfo/TicketInfo'
 
 interface TicketCardProps {
-  image: string
-  transfers: ITransfers
+  ticket: Ticket
 }
 
-const TicketCard = ({ image, transfers }: TicketCardProps) => {
+const TicketCard = ({ ticket }: TicketCardProps) => {
+  const { companies } = useAppSelector(companySelector)
+
+  const image = companies.find((company) => company.id === ticket.companyId)?.logo
+
   return (
     <div className='ticket-card'>
       <div className='row'>
         <div className='col align-self-center'>
-          <Price price='13 400 Р' />
+          <Price price={ticket.price.toString()} />
         </div>
         <div className='col'>
           <AviaLogo image={image} />
@@ -24,10 +29,10 @@ const TicketCard = ({ image, transfers }: TicketCardProps) => {
       <div className='row'>
         <div className='col'>
           <div className='row'>
-            <TicketInfo type='title' text='MOW - HKT' />
+            <TicketInfo type='title' text={`${ticket.info.origin} - ${ticket.info.destination}`} />
           </div>
           <div className='row'>
-            <TicketInfo type='data' text='10:45 - 08:00' />
+            <TicketInfo type='data' text={`${ticket.info.dateStart} - ${ticket.info.dateEnd}`} />
           </div>
         </div>
         <div className='col'>
@@ -35,15 +40,15 @@ const TicketCard = ({ image, transfers }: TicketCardProps) => {
             <TicketInfo type='title' text='В ПУТИ' />
           </div>
           <div className='row'>
-            <TicketInfo type='data' text='21ч 15м' />
+            <TicketInfo type='data' text={ticket.info.duration.toString()} />
           </div>
         </div>
         <div className='col align-self-center'>
           <div className='row'>
-            <TicketInfo type='title' text={transfers.numTransfers} />
+            <TicketInfo type='title' text={`${ticket.info.stops.length} остановок`} />
           </div>
           <div className='row'>
-            <TicketInfo type='data' text={transfers.listTransfers} />
+            <TicketInfo type='data' text={ticket.info.stops.join(', ')} />
           </div>
         </div>
       </div>
