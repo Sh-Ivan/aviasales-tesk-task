@@ -5,6 +5,8 @@ import TicketCard from './TicketCard/TicketCard'
 import './MainBlock.scss'
 import { useAppSelector } from '../../store/hooks'
 import { ticketSelector } from '../../store/slices/ticketSlice'
+import SkeletonLoading from './TicketCard/SkeletonLoading/SkeletonLoading'
+import ErrorBlock from './TicketCard/ErrorBlock/ErrorBlock'
 
 const MainBlock = () => {
   const [ticketNum, setTicketNum] = useState(5)
@@ -14,8 +16,23 @@ const MainBlock = () => {
     setTicketNum(ticketNum + 5)
   }
 
-  if (isLoading) return <div className='main-block'>Is loading...</div>
-  if (error) return <div className='main-block'>{error}</div>
+  if (isLoading)
+    return (
+      <div className='main-block'>
+        <SkeletonLoading />
+        <SkeletonLoading />
+        <SkeletonLoading />
+        <SkeletonLoading />
+        <SkeletonLoading />
+      </div>
+    )
+
+  if (error)
+    return (
+      <div className='main-block'>
+        <ErrorBlock />
+      </div>
+    )
 
   return (
     <div className='main-block'>

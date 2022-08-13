@@ -6,6 +6,12 @@ import AviaLogo from './AviaLogo/AviaLogo'
 import Price from './Price/Price'
 import './TicketCard.scss'
 import TicketInfo from './TicketInfo/TicketInfo'
+import {
+  dateToTime,
+  numberWithSpace,
+  stopsNumber,
+  daysHoursMinutes,
+} from '../../../utils/ticketUtils'
 
 interface TicketCardProps {
   ticket: Ticket
@@ -20,7 +26,7 @@ const TicketCard = ({ ticket }: TicketCardProps) => {
     <div className='ticket-card'>
       <div className='row'>
         <div className='col align-self-center'>
-          <Price price={ticket.price.toString()} />
+          <Price price={numberWithSpace(ticket.price) + ' Р'} />
         </div>
         <div className='col'>
           <AviaLogo image={image} />
@@ -32,7 +38,10 @@ const TicketCard = ({ ticket }: TicketCardProps) => {
             <TicketInfo type='title' text={`${ticket.info.origin} - ${ticket.info.destination}`} />
           </div>
           <div className='row'>
-            <TicketInfo type='data' text={`${ticket.info.dateStart} - ${ticket.info.dateEnd}`} />
+            <TicketInfo
+              type='data'
+              text={`${dateToTime(ticket.info.dateStart)} - ${dateToTime(ticket.info.dateEnd)}`}
+            />
           </div>
         </div>
         <div className='col'>
@@ -40,12 +49,12 @@ const TicketCard = ({ ticket }: TicketCardProps) => {
             <TicketInfo type='title' text='В ПУТИ' />
           </div>
           <div className='row'>
-            <TicketInfo type='data' text={ticket.info.duration.toString()} />
+            <TicketInfo type='data' text={daysHoursMinutes(ticket.info.duration)} />
           </div>
         </div>
         <div className='col align-self-center'>
           <div className='row'>
-            <TicketInfo type='title' text={`${ticket.info.stops.length} остановок`} />
+            <TicketInfo type='title' text={stopsNumber(ticket.info.stops.length)} />
           </div>
           <div className='row'>
             <TicketInfo type='data' text={ticket.info.stops.join(', ')} />

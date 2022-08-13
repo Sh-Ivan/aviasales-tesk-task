@@ -6,16 +6,12 @@ import RadioButton from '../../Shared/RadioButton/RadioButton'
 import './RadioButtonBlock.scss'
 
 const RadioButtonBlock = () => {
-  const { companies, isLoading, error } = useAppSelector(companySelector)
+  const { companies } = useAppSelector(companySelector)
   const [checked, setChecked] = useState('all')
 
   const handleRadioButtonChange = (e: React.ChangeEvent, id: string) => {
     setChecked(id)
   }
-
-  if (isLoading) return <div className='radio-button-block'>Loading...</div>
-
-  if (error) return <div className='radio-button-block'>{error}</div>
 
   return (
     <div className='radio-button-block'>

@@ -1,0 +1,44 @@
+.skeleton-card {
+  background-color: #fff;
+  height: 135px;
+  margin-bottom: 20px;
+  padding: 20px;
+
+  .content {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+.skeleton-card.is-loading {
+  .top-left,
+  .top-right,
+  .bottom {
+    background: #eee;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    border-radius: 5px;
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+  }
+
+  .top-left,
+  .top-right {
+    height: 30px;
+    width: 100px;
+  }
+
+  .bottom {
+    height: 40px;
+    width: 100%;
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}

@@ -7,7 +7,7 @@ const DateSearchItem = (props: SearchItemProps) => {
   return (
     <div className='date-search-item'>
       <SearchItem {...props} />
-      <DatePicker />
+      <DatePicker {...props} />
     </div>
   )
 }
