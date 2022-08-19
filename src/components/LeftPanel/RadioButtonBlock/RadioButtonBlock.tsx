@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import BlockHeader from '../../Shared/BlockHeader/BlockHeader'
-import RadioButton from '../../Shared/RadioButton/RadioButton'
+import BlockHeader from '../../Shared/BlockHeader'
+import RadioButton from '../../Shared/RadioButton'
 import './RadioButtonBlock.scss'
 
 export interface IAirlines {

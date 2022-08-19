@@ -1,9 +1,9 @@
 import React from 'react'
 import { ITransfers } from '../MainBlock'
-import AviaLogo from './AviaLogo/AviaLogo'
-import Price from './Price/Price'
+import AviaLogo from './AviaLogo'
+import Price from './Price'
 import './TicketCard.scss'
-import TicketInfo from './TicketInfo/TicketInfo'
+import TicketInfo from './TicketInfo'
 
 interface TicketCardProps {
   image: string

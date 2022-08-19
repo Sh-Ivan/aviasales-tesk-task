@@ -1,6 +1,6 @@
 import React from 'react'
-import CheckBoxBlock from './CheckBoxBlock/CheckBoxBlock'
-import RadioButtonBlock from './RadioButtonBlock/RadioButtonBlock'
+import CheckBoxBlock from './CheckBoxBlock'
+import RadioButtonBlock from './RadioButtonBlock'
 import './LeftPanel.scss'
 
 const LeftPanel = () => {

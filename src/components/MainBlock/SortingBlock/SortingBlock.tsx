@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Button from '../../Shared/Button/Button'
+import Button from '../../Shared/Button'
 import './SortingBlock.scss'
 
 interface ISortingButtons {
@@ -10,10 +10,10 @@ interface ISortingButtons {
 const sortingButtons: ISortingButtons[] = [
   {
     name: 'cheapest',
-    text: 'САМЫЙ ДЕШЕВЫЙ',
+    text: 'самый дешевый',
   },
-  { name: 'fastest', text: 'САМЫЙ БЫСТРЫЙ' },
-  { name: 'optimal', text: 'ОПТИМАЛЬНЫЙ' },
+  { name: 'fastest', text: 'самый быстрый' },
+  { name: 'optimal', text: 'оптимальный' },
 ]
 
 const SortingBlock = () => {
