@@ -26,7 +26,7 @@ const airlines: IAirlines[] = [
 const RadioButtonBlock = () => {
   const [checked, setChecked] = useState(airlines[2].id)
 
-  const handleRadioButtonChange = (e: React.ChangeEvent, id: number) => {
+  const handleRadioButtonChange = (e: React.MouseEvent, id: number) => {
     setChecked(id)
   }
 

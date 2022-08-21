@@ -6,4 +6,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 40px;
+}
+
+@media screen and (max-width: 576px) {
+  .main-block-wrapper {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 992px) and (min-width: 576px) {
+  .left-panel-wrapper {
+    width: 502px !important;
+    padding: 0 !important;
+  }
 }

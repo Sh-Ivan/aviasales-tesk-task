@@ -13,10 +13,10 @@ const App: FC = () => (
         </div>
       </div>
       <div className='row justify-content-center'>
-        <div className='col-auto'>
+        <div className='col-auto left-panel-wrapper'>
           <LeftPanel />
         </div>
-        <div className='col-auto'>
+        <div className='col-auto main-block-wrapper'>
           <MainBlock />
         </div>
       </div>
