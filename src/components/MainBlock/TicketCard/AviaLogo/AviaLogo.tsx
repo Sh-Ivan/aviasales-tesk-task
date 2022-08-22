@@ -2,13 +2,18 @@ import React from 'react'
 import './AviaLogo.scss'
 
 interface AviaLogoProps {
-  image: string
+  image?: string
 }
 
 const AviaLogo = ({ image }: AviaLogoProps) => {
   return (
     <div className='col avia-logo-wrapper'>
-      <img src={image} alt='Avia logo' />
+      <img
+        src={image ? require(`./img/${image}`) : ''}
+        alt='Avia logo'
+        width={'110px'}
+        height={'36px'}
+      />
     </div>
   )
 }

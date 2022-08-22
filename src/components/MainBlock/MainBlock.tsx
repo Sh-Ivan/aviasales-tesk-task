@@ -1,46 +1,51 @@
-import React from 'react'
-import Button from '../Shared/Button'
+import React, { useState } from 'react'
+import Button from '../Shared/Button/Button'
 import SortingBlock from './SortingBlock'
-import TicketCard from './TicketCard'
+import TicketCard from './TicketCard/TicketCard'
 import './MainBlock.scss'
-import S7Logo from './img/S7 Logo.png'
-import XiamenAir from './img/XiamenAir Logo.png'
-
-export interface ITransfers {
-  numTransfers: string
-  listTransfers: string
-}
-
-const transfers: ITransfers[] = [
-  {
-    numTransfers: 'без пересадок',
-    listTransfers: '',
-  },
-  {
-    numTransfers: '2 пересадки',
-    listTransfers: 'HKG, JNB',
-  },
-]
+import { useAppSelector } from '../../store/hooks'
+import { ticketSelector } from '../../store/slices/ticketSlice'
+import SkeletonLoading from './TicketCard/SkeletonLoading/SkeletonLoading'
+import ErrorBlock from './TicketCard/ErrorBlock/ErrorBlock'
 
 const MainBlock = () => {
-  const handleButtonClick = () => {
-    return
+  const [ticketNum, setTicketNum] = useState(5)
+  const { tickets, isLoading, error } = useAppSelector(ticketSelector)
+
+  const handleAddButtonClick = () => {
+    setTicketNum(ticketNum + 5)
   }
+
+  if (isLoading)
+    return (
+      <div className='main-block'>
+        <SkeletonLoading />
+        <SkeletonLoading />
+        <SkeletonLoading />
+        <SkeletonLoading />
+        <SkeletonLoading />
+      </div>
+    )
+
+  if (error)
+    return (
+      <div className='main-block'>
+        <ErrorBlock />
+      </div>
+    )
 
   return (
     <div className='main-block'>
       <SortingBlock />
-      {Array.from({ length: 6 }).map((ticket, index) => {
-        return (
-          <TicketCard
-            key={index}
-            image={index % 2 !== 0 ? XiamenAir : S7Logo}
-            transfers={index == 0 ? transfers[0] : transfers[1]}
-          />
-        )
+      {tickets.slice(0, ticketNum).map((ticket) => {
+        return <TicketCard key={ticket.id} ticket={ticket} />
       })}
       <div className='bottom-button'>
-        <Button buttonText='показать еще 5 билетов' active={true} handleClick={handleButtonClick} />
+        <Button
+          buttonText='показать еще 5 билетов'
+          active={true}
+          handleClick={handleAddButtonClick}
+        />
       </div>
     </div>
   )

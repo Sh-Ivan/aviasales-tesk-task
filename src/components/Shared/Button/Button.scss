@@ -15,12 +15,12 @@
     background-color: $hovered-color;
   }
 
-  &:first-child {
+  &:first-of-type {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
   }
 
-  &:last-child {
+  &:last-of-type {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
   }
