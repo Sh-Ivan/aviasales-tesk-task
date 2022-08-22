@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import BlockHeader from '../../Shared/BlockHeader'
 import RadioButton from '../../Shared/RadioButton'
-import './RadioButtonBlock.scss'
+import './RadioButtonFilter.scss'
 
 export interface IAirlines {
   id: number
@@ -23,7 +23,7 @@ const airlines: IAirlines[] = [
   },
 ]
 
-const RadioButtonBlock = () => {
+const RadioButtonFilter = () => {
   const [checked, setChecked] = useState(airlines[2].id)
 
   const handleRadioButtonChange = (e: React.MouseEvent, id: number) => {
@@ -48,4 +48,4 @@ const RadioButtonBlock = () => {
   )
 }
 
-export default RadioButtonBlock
+export default RadioButtonFilter

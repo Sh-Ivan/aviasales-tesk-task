@@ -14,37 +14,21 @@ const TicketCard = ({ image, transfers }: TicketCardProps) => {
   return (
     <div className='ticket-card'>
       <div className='row'>
-        <div className='col align-self-center'>
-          <Price price='13 400 Р' />
-        </div>
-        <div className='col'>
-          <AviaLogo image={image} />
-        </div>
+        <Price price='13 400 Р' />
+        <AviaLogo image={image} />
       </div>
       <div className='row'>
         <div className='col'>
-          <div className='row'>
-            <TicketInfo type='title' text='MOW - HKT' />
-          </div>
-          <div className='row'>
-            <TicketInfo type='data' text='10:45 - 08:00' />
-          </div>
+          <TicketInfo type='title' text='MOW - HKT' />
+          <TicketInfo type='data' text='10:45 - 08:00' />
         </div>
         <div className='col'>
-          <div className='row'>
-            <TicketInfo type='title' text='В ПУТИ' />
-          </div>
-          <div className='row'>
-            <TicketInfo type='data' text='21ч 15м' />
-          </div>
+          <TicketInfo type='title' text='В ПУТИ' />
+          <TicketInfo type='data' text='21ч 15м' />
         </div>
         <div className='col align-self-center'>
-          <div className='row'>
-            <TicketInfo type='title' text={transfers.numTransfers} />
-          </div>
-          <div className='row'>
-            <TicketInfo type='data' text={transfers.listTransfers} />
-          </div>
+          <TicketInfo type='title' text={transfers.numTransfers} />
+          <TicketInfo type='data' text={transfers.listTransfers} />
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@ interface AviaLogoProps {
 
 const AviaLogo = ({ image }: AviaLogoProps) => {
   return (
-    <div className='avia-logo-wrapper'>
+    <div className='col avia-logo-wrapper'>
       <img src={image} alt='Avia logo' />
     </div>
   )
