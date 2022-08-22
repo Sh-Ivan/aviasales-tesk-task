@@ -10,7 +10,7 @@ interface RadioButtonProps {
 
 const RadioButton = ({ buttonName, isChecked, handleClick, id }: RadioButtonProps) => {
   const handleCheckboxChange = (e: React.ChangeEvent) => {
-    handleClick(e, id)
+    handleClick && handleClick(e, id)
   }
 
   return (

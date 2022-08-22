@@ -14,9 +14,6 @@ const App: FC = () => {
 
   useEffect(() => {
     dispatch(fetchTickets())
-  }, [])
-
-  useEffect(() => {
     dispatch(fetchCompanies())
   }, [])
 
