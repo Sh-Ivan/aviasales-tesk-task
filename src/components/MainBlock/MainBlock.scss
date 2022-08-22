@@ -1,0 +1,13 @@
+.main-block {
+  width: 502px;
+}
+
+.bottom-button button {
+  width: 100%;
+}
+
+@media screen and (max-width: 576px) {
+  .main-block {
+    width: 100%;
+  }
+}

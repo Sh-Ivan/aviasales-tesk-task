@@ -1,0 +1,16 @@
+@import '../../../../styles/variables';
+
+.ticket-info-title {
+  color: $light-grey;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+
+.ticket-info-data {
+  color: $text-primary;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+}
