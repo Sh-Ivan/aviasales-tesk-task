@@ -1,13 +1,8 @@
 import React, { useState } from 'react'
-import CheckBox from '../../Shared/Checkbox/CheckBox'
-import BlockHeader from '../../Shared/BlockHeader/BlockHeader'
-import './CheckBoxBlock.scss'
-
-export interface IFilter {
-  name: string
-  type: number
-  checked: boolean
-}
+import CheckBox from '../../Shared/Checkbox'
+import BlockHeader from '../../Shared/BlockHeader'
+import { IFilter } from '../../Shared/Checkbox/CheckBox'
+import './CheckBoxFilter.scss'
 
 const filters: IFilter[] = [
   {
@@ -26,25 +21,24 @@ const filters: IFilter[] = [
     checked: true,
   },
   {
-    name: '3 пересадка',
+    name: '3 пересадки',
     type: 3,
     checked: false,
   },
 ]
 
-const CheckBoxBlock = () => {
+const changeFilter = (filters: IFilter[], type: number) =>
+  filters.map((filter) => {
+    filter.checked = filter.type !== type ? filter.checked : !filter.checked
+    return filter
+  })
+
+const CheckBoxFilter = () => {
   const [filtersState, setFiltersState] = useState(filters)
 
   const handleCheckboxChange = (e: React.MouseEvent, type: number) => {
     e.preventDefault()
-    setFiltersState((state) => {
-      return state.map((filter) => {
-        if (filter.type === type) {
-          filter.checked = !filter.checked
-        }
-        return filter
-      })
-    })
+    setFiltersState((state) => changeFilter(state, type))
   }
 
   return (
@@ -57,4 +51,4 @@ const CheckBoxBlock = () => {
   )
 }
 
-export default CheckBoxBlock
+export default CheckBoxFilter

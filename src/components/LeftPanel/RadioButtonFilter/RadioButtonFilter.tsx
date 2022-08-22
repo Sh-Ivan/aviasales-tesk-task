@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { useAppSelector } from '../../../store/hooks'
 import { companySelector } from '../../../store/slices/companySlice'
-import BlockHeader from '../../Shared/BlockHeader/BlockHeader'
-import RadioButton from '../../Shared/RadioButton/RadioButton'
-import './RadioButtonBlock.scss'
+import BlockHeader from '../../Shared/BlockHeader'
+import RadioButton from '../../Shared/RadioButton'
+import './RadioButtonFilter.scss'
 
-const RadioButtonBlock = () => {
+const RadioButtonFilter = () => {
   const { companies } = useAppSelector(companySelector)
   const [checked, setChecked] = useState('all')
 
-  const handleRadioButtonChange = (e: React.ChangeEvent, id: string) => {
+  const handleRadioButtonChange = (e: React.MouseEvent, id: string) => {
     setChecked(id)
   }
 
@@ -38,4 +38,4 @@ const RadioButtonBlock = () => {
   )
 }
 
-export default RadioButtonBlock
+export default RadioButtonFilter

@@ -1,25 +1,11 @@
 @import '/src//styles/variables';
 
-.filters-block {
-  width: 232px;
-  height: 252px;
-  margin: 10px;
-  margin-top: 0;
-  box-sizing: border-box;
-}
-.filters input {
-  width: 20px;
-  height: 20px;
-}
-.filters__header {
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  margin-top: 20px;
-  padding-left: 20px;
-}
+.filters__item {
+  transition: all 0.3s ease-in-out;
 
-.filters__item:hover {
-  background: $hovered-color;
+  &:hover {
+    background: $hovered-color;
+  }
 }
 .checkbox {
   display: block;
@@ -27,6 +13,9 @@
   line-height: 40px;
   padding-left: 20px;
   cursor: pointer;
+  font-weight: 400;
+  font-size: 13px;
+  color: $text-primary;
 }
 .checkbox__input {
   display: none;

@@ -7,8 +7,11 @@ interface TicketInfoProps {
 }
 
 const TicketInfo = ({ type, text = '' }: TicketInfoProps) => {
-  const classNames = type === 'title' ? 'ticket-info-title' : 'ticket-info-data'
-  return <div className={classNames}>{text}</div>
+  return (
+    <div className='row'>
+      <div className={`ticket-info-${type}`}>{text}</div>
+    </div>
+  )
 }
 
 export default TicketInfo

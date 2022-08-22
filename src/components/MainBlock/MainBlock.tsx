@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Button from '../Shared/Button/Button'
-import SortingBlock from './SortingBlock/SortingBlock'
+import SortingBlock from './SortingBlock'
 import TicketCard from './TicketCard/TicketCard'
 import './MainBlock.scss'
 import { useAppSelector } from '../../store/hooks'
@@ -42,7 +42,7 @@ const MainBlock = () => {
       })}
       <div className='bottom-button'>
         <Button
-          buttonText='ПОКАЗАТЬ ЕЩЕ 5 БИЛЕТОВ'
+          buttonText='показать еще 5 билетов'
           active={true}
           handleClick={handleAddButtonClick}
         />

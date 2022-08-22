@@ -5,6 +5,7 @@
   align-items: center;
   padding: 10px 0 10px 20px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 
   &:hover {
     background: $hovered-color;
@@ -16,13 +17,14 @@
     border: 1px solid #9abbce;
     border-radius: 22px;
     margin: 0 10px 0 0;
+    cursor: pointer;
   }
 
   & label {
     font-weight: 400;
     font-size: 13px;
     line-height: 20px;
-
+    cursor: pointer;
     color: #4a4a4a;
   }
 }

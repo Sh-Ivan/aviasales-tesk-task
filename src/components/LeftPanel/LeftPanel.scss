@@ -4,3 +4,11 @@
     margin-bottom: 20px;
   }
 }
+
+@media screen and (max-width: 992px) and (min-width: 576px) {
+  .left-panel {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+  }
+}

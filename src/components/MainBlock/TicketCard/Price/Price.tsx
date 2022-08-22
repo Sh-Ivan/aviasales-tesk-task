@@ -6,7 +6,11 @@ interface PriceProps {
 }
 
 const Price = ({ price }: PriceProps) => {
-  return <div className='ticket-price'>{price}</div>
+  return (
+    <div className='col align-self-center'>
+      <div className='ticket-price'>{price}</div>
+    </div>
+  )
 }
 
 export default Price

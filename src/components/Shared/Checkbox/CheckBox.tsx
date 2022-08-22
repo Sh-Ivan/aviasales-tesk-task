@@ -1,6 +1,11 @@
 import React from 'react'
-import { IFilter } from '../../LeftPanel/CheckBoxBlock/CheckBoxBlock'
 import './CheckBox.scss'
+
+export interface IFilter {
+  name: string
+  type: number
+  checked: boolean
+}
 
 interface CheckBoxProps {
   filter: IFilter

@@ -5,18 +5,18 @@ interface RadioButtonProps {
   buttonName: string
   isChecked?: boolean
   id: string
-  handleClick: (e: React.ChangeEvent, id: string) => void
+  handleClick: (e: React.MouseEvent, id: string) => void
 }
 
 const RadioButton = ({ buttonName, isChecked, handleClick, id }: RadioButtonProps) => {
-  const handleCheckboxChange = (e: React.ChangeEvent) => {
+  const handleCheckboxChange = (e: React.MouseEvent) => {
     handleClick && handleClick(e, id)
   }
 
   return (
-    <div className='radio-button'>
-      <input type='radio' checked={isChecked} onChange={handleCheckboxChange} />{' '}
-      <label>{buttonName}</label>
+    <div className='radio-button' onClick={handleCheckboxChange}>
+      <input type='radio' checked={isChecked} id={buttonName} readOnly />{' '}
+      <label htmlFor={buttonName}>{buttonName}</label>
     </div>
   )
 }
