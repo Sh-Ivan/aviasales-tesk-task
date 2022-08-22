@@ -1,11 +1,12 @@
 import React from 'react'
+import { SearchTypes } from '../../../types/Filters'
 import './SearchItem.scss'
 
 export interface SearchItemProps {
   placeholder: string
-  type: string
+  type: SearchTypes
   value: string
-  onChange: (type: string, value: string) => void
+  onChange: (type: SearchTypes, value: string) => void
 }
 
 const SearchItem = ({ placeholder, value, type, onChange }: SearchItemProps) => {

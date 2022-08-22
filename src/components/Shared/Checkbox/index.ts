@@ -1,4 +1,3 @@
-import CheckBox, { IFilter } from './CheckBox'
+import CheckBox from './CheckBox'
 
 export default CheckBox
-export type { IFilter }

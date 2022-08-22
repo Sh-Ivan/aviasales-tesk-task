@@ -1,32 +1,25 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import { changeSearchField, searchSelector } from '../../store/slices/filtersSlice'
+import { SearchTypes } from '../../types/Filters'
 import './SearchBlock.scss'
 import DateSearchItem from './SearchItem.tsx/DateSearchItem'
 import SearchItem from './SearchItem.tsx/SearchItem'
 import SwapButton from './SwapButton/SwapButton'
 
-interface SearchData {
-  from: string
-  to: string
-  dateTo: string
-  dateFrom: string
-}
-
-const initialState: SearchData = {
-  from: '',
-  to: '',
-  dateTo: '',
-  dateFrom: '',
-}
-
 const SearchBlock = () => {
-  const [searchData, setSearchData] = useState(initialState)
+  const searchData = useAppSelector(searchSelector)
+  const dispatch = useAppDispatch()
 
-  const handleChange = (type: string, value: string) => {
-    setSearchData({ ...searchData, [type]: value })
+  const handleChange = (type: SearchTypes, value: string) => {
+    dispatch(changeSearchField({ type, value }))
   }
 
   const handleSwap = () => {
-    setSearchData({ ...searchData, to: searchData.from, from: searchData.to })
+    const to = searchData.to
+    const from = searchData.from
+    dispatch(changeSearchField({ type: 'to', value: from }))
+    dispatch(changeSearchField({ type: 'from', value: to }))
   }
 
   return (

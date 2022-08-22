@@ -26,7 +26,14 @@ interface CompanyState {
 }
 
 const initialState: CompanyState = {
-  companies: [] as Company[],
+  companies: [
+    {
+      id: 'all',
+      name: 'Все',
+      logo: 'string',
+      selected: true,
+    },
+  ],
   isLoading: false,
   error: null,
 }
@@ -34,10 +41,17 @@ const initialState: CompanyState = {
 export const companySlice = createSlice({
   name: 'companies',
   initialState,
-  reducers: {},
+  reducers: {
+    changeCompanyFilter: (state, { payload }: PayloadAction<string>) => {
+      state.companies = state.companies.map((company) => {
+        company.selected = company.id === payload
+        return company
+      })
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchCompanies.fulfilled, (state, { payload }: PayloadAction<Company[]>) => {
-      state.companies = payload
+      state.companies = initialState.companies.concat(payload)
       state.isLoading = false
       state.error = ''
     })
@@ -53,5 +67,7 @@ export const companySlice = createSlice({
 })
 
 export const companySelector = (state: RootState) => state.companies
+
+export const { changeCompanyFilter } = companySlice.actions
 
 export default companySlice.reducer

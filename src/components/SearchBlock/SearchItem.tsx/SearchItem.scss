@@ -9,6 +9,7 @@
   display: flex;
   justify-content: center;
   cursor: pointer;
+  transition: all 0.3s ease-in;
 
   &:hover {
     box-shadow: 0px 0px 0px 2px #ff6f32;

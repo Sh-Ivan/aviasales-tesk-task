@@ -1,16 +1,19 @@
 import React from 'react'
+import { useAppDispatch } from '../../../store/hooks'
+import { changeCompanyFilter } from '../../../store/slices/companySlice'
 import './RadioButton.scss'
 
 interface RadioButtonProps {
   buttonName: string
   isChecked?: boolean
   id: string
-  handleClick: (e: React.MouseEvent, id: string) => void
 }
 
-const RadioButton = ({ buttonName, isChecked, handleClick, id }: RadioButtonProps) => {
-  const handleCheckboxChange = (e: React.MouseEvent) => {
-    handleClick && handleClick(e, id)
+const RadioButton = ({ buttonName, isChecked, id }: RadioButtonProps) => {
+  const dispatch = useAppDispatch()
+
+  const handleCheckboxChange = () => {
+    dispatch(changeCompanyFilter(id))
   }
 
   return (
