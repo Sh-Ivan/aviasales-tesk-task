@@ -1,6 +1,7 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { changeSearchField, searchSelector } from '../../store/slices/filtersSlice'
+import { ticketSelector } from '../../store/slices/ticketSlice'
 import { SearchTypes } from '../../types/Filters'
 import './SearchBlock.scss'
 import DateSearchItem from './SearchItem.tsx/DateSearchItem'
@@ -9,7 +10,16 @@ import SwapButton from './SwapButton/SwapButton'
 
 const SearchBlock = () => {
   const searchData = useAppSelector(searchSelector)
+  const { tickets } = useAppSelector(ticketSelector)
   const dispatch = useAppDispatch()
+
+  const origins = tickets
+    .map((ticket) => ticket.info.origin)
+    .filter((v, i, a) => a.indexOf(v) === i)
+
+  const destinations = tickets
+    .map((ticket) => ticket.info.destination)
+    .filter((v, i, a) => a.indexOf(v) === i)
 
   const handleChange = (type: SearchTypes, value: string) => {
     dispatch(changeSearchField({ type, value }))
@@ -29,9 +39,16 @@ const SearchBlock = () => {
         value={searchData.from}
         type='from'
         onChange={handleChange}
+        dataOptions={origins}
       />
       <SwapButton handleClick={handleSwap} />
-      <SearchItem placeholder='Куда' value={searchData.to} type='to' onChange={handleChange} />
+      <SearchItem
+        placeholder='Куда'
+        value={searchData.to}
+        type='to'
+        onChange={handleChange}
+        dataOptions={destinations}
+      />
       <DateSearchItem
         placeholder='Когда'
         value={searchData.dateTo}

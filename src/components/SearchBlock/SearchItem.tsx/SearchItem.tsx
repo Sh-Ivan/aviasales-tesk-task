@@ -7,16 +7,28 @@ export interface SearchItemProps {
   type: SearchTypes
   value: string
   onChange: (type: SearchTypes, value: string) => void
+  dataOptions?: string[]
 }
 
-const SearchItem = ({ placeholder, value, type, onChange }: SearchItemProps) => {
+const SearchItem = ({ placeholder, value, type, onChange, dataOptions }: SearchItemProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(type, e.target.value)
   }
 
   return (
     <div className='search-item'>
-      <input type='text' placeholder={placeholder} value={value} onChange={handleChange} />
+      <input
+        type='text'
+        placeholder={placeholder}
+        value={value}
+        onChange={handleChange}
+        list={type}
+      />
+      <datalist id={type}>
+        {dataOptions?.map((option) => (
+          <option key={option} value={option} />
+        ))}
+      </datalist>
     </div>
   )
 }

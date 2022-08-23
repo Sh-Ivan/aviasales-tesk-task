@@ -10,20 +10,23 @@ import ErrorBlock from './TicketCard/ErrorBlock/ErrorBlock'
 import { sortTickets } from '../../utils/ticketSorting'
 import { sortingSelector } from '../../store/slices/sortingSlice'
 import { Ticket } from '../../types/Ticket'
-
-let sortedTickets: Ticket[] = []
+import { filterTicket } from '../../utils/ticketFilter'
 
 const MainBlock = () => {
   const [ticketNum, setTicketNum] = useState(5)
   const { tickets, isLoading, error } = useAppSelector(ticketSelector)
+  const filters = useAppSelector((state) => state.filters)
+  const { companies } = useAppSelector((state) => state.companies)
+  const [sortedTickets, setSortedTickets] = useState<Ticket[]>([])
   const { order: sortingOrder } = useAppSelector(sortingSelector)
 
   const handleAddButtonClick = () => {
     setTicketNum(ticketNum + 5)
   }
   useEffect(() => {
-    sortedTickets = sortTickets(tickets, sortingOrder)
-  }, [tickets, sortingOrder])
+    const filteredTickets = filterTicket(tickets, filters, companies)
+    setSortedTickets(sortTickets(filteredTickets, sortingOrder))
+  }, [tickets, sortingOrder, filters, companies])
 
   if (isLoading)
     return (
