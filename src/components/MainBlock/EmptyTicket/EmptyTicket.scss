@@ -1,0 +1,13 @@
+.empty-tickets {
+  background-color: #fff;
+  height: 135px;
+  margin-bottom: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-tickets__title {
+  text-align: center;
+}

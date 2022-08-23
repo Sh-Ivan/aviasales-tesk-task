@@ -6,11 +6,12 @@ import './MainBlock.scss'
 import { useAppSelector } from '../../store/hooks'
 import { ticketSelector } from '../../store/slices/ticketSlice'
 import SkeletonLoading from './TicketCard/SkeletonLoading/SkeletonLoading'
-import ErrorBlock from './TicketCard/ErrorBlock/ErrorBlock'
+import ErrorBlock from './ErrorBlock/ErrorBlock'
 import { sortTickets } from '../../utils/ticketSorting'
 import { sortingSelector } from '../../store/slices/sortingSlice'
 import { Ticket } from '../../types/Ticket'
 import { filterTicket } from '../../utils/ticketFilter'
+import EmptyTicket from './EmptyTicket/EmptyTicket'
 
 const MainBlock = () => {
   const [ticketNum, setTicketNum] = useState(5)
@@ -46,12 +47,19 @@ const MainBlock = () => {
       </div>
     )
 
+  const ticketsBlock =
+    sortedTickets.length === 0 ? (
+      <EmptyTicket />
+    ) : (
+      sortedTickets.slice(0, ticketNum).map((ticket) => {
+        return <TicketCard key={ticket.id} ticket={ticket} />
+      })
+    )
+
   return (
     <div className='main-block'>
       <SortingBlock />
-      {sortedTickets.slice(0, ticketNum).map((ticket) => {
-        return <TicketCard key={ticket.id} ticket={ticket} />
-      })}
+      {ticketsBlock}
       <div className='bottom-button'>
         <Button
           buttonText='показать еще 5 билетов'
