@@ -2,3 +2,9 @@
   cursor: pointer;
   transition: all 1.3s ease-in-out;
 }
+
+@media screen and (max-width: 992px) and (min-width: 576px) {
+  .swap-button {
+    left: 230px;
+  }
+}

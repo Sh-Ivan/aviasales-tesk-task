@@ -1,11 +1,7 @@
+@import '../TicketCard/TicketCard.scss';
+
 .error-tickets {
-  background-color: #fff;
-  height: 135px;
-  margin-bottom: 20px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include ticket-card();
 
   button {
     width: 200px;

@@ -26,39 +26,39 @@ const SearchBlock = () => {
   }
 
   const handleSwap = () => {
-    const to = searchData.to
-    const from = searchData.from
-    dispatch(changeSearchField({ type: 'to', value: from }))
-    dispatch(changeSearchField({ type: 'from', value: to }))
+    const origin = searchData.origin
+    const destionation = searchData.destionation
+    dispatch(changeSearchField({ type: 'destionation', value: origin }))
+    dispatch(changeSearchField({ type: 'origin', value: destionation }))
   }
 
   return (
     <div className='search-block'>
       <SearchItem
         placeholder='Откуда'
-        value={searchData.from}
-        type='from'
+        value={searchData.origin}
+        type='origin'
         onChange={handleChange}
         dataOptions={origins}
       />
       <SwapButton handleClick={handleSwap} />
       <SearchItem
         placeholder='Куда'
-        value={searchData.to}
-        type='to'
+        value={searchData.destionation}
+        type='destionation'
         onChange={handleChange}
         dataOptions={destinations}
       />
       <DateSearchItem
         placeholder='Когда'
-        value={searchData.dateTo}
-        type='dateTo'
+        value={searchData.dateStart}
+        type='dateStart'
         onChange={handleChange}
       />
       <DateSearchItem
         placeholder='Обратно'
-        value={searchData.dateFrom}
-        type='dateFrom'
+        value={searchData.dateEnd}
+        type='dateEnd'
         onChange={handleChange}
       />
     </div>

@@ -10,20 +10,25 @@ export const filterTicket = (tickets: Ticket[], filters: Filters, companies: Com
   }, [])
 
   const filteredTickets = tickets.filter((ticket) => {
-    if (company?.name !== 'all' && ticket.companyId !== company?.id) return false
+    if (company?.id !== 'all' && ticket.companyId !== company?.id) return false
+
     if (!transfers.includes(ticket.info.stops.length)) return false
+
     if (
-      (filters.search.from && filters.search.from !== ticket.info.origin) ||
-      (filters.search.to && filters.search.to !== ticket.info.destination)
+      (filters.search.origin && filters.search.origin !== ticket.info.origin) ||
+      (filters.search.destionation && filters.search.destionation !== ticket.info.destination)
     ) {
       return false
     }
+
     if (
-      (ticket.info.dateStart && !datesIsEqual(ticket.info.dateStart, filters.search.dateFrom)) ||
-      (ticket.info.dateEnd && !datesIsEqual(ticket.info.dateEnd, filters.search.dateTo))
+      (filters.search.dateStart &&
+        !datesIsEqual(ticket.info.dateStart, filters.search.dateStart)) ||
+      (filters.search.dateEnd && !datesIsEqual(ticket.info.dateEnd, filters.search.dateEnd))
     ) {
       return false
     }
+
     return true
   })
 

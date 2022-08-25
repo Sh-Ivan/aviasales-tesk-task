@@ -1,3 +1,12 @@
 .date-search-item {
   position: relative;
 }
+
+@media screen and (max-width: 992px) {
+  .date-search-item {
+    width: 48%;
+    & div.search-item {
+      width: 100%;
+    }
+  }
+}

@@ -16,10 +16,10 @@ const initialTransfers: Transfers[] = [
 const initialState: Filters = {
   transfers: initialTransfers,
   search: {
-    from: '',
-    to: '',
-    dateTo: '',
-    dateFrom: '',
+    origin: '',
+    destionation: '',
+    dateStart: '',
+    dateEnd: '',
   },
 }
 

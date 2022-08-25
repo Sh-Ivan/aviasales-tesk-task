@@ -16,6 +16,8 @@ const CheckBox = ({ filter }: CheckBoxProps) => {
     dispatch(changeTransfer(filter.type))
   }
 
+  const classNames = filter.checked ? 'checkbox__border checked' : 'checkbox__border'
+
   return (
     <div className='filters__item' onClick={handleChange}>
       <label htmlFor={'transition_' + filter.type} className='checkbox'>
@@ -26,7 +28,7 @@ const CheckBox = ({ filter }: CheckBoxProps) => {
           id={'transition_' + filter.type}
           className='checkbox__input'
         />
-        <span className={filter.checked ? 'checkbox__border checked' : 'checkbox__border'}></span>
+        <span className={classNames}></span>
         {filter.name}
       </label>
     </div>

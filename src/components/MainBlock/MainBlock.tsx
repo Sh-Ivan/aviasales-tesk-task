@@ -32,11 +32,9 @@ const MainBlock = () => {
   if (isLoading)
     return (
       <div className='main-block'>
-        <SkeletonLoading />
-        <SkeletonLoading />
-        <SkeletonLoading />
-        <SkeletonLoading />
-        <SkeletonLoading />
+        {Array.from({ length: 5 }).map((el, index) => (
+          <SkeletonLoading key={index} />
+        ))}
       </div>
     )
 

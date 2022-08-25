@@ -5,10 +5,10 @@ export interface Transfers {
 }
 
 export interface SearchData {
-  from: string
-  to: string
-  dateTo: string
-  dateFrom: string
+  origin: string
+  destionation: string
+  dateStart: string
+  dateEnd: string
 }
 
 export type SearchTypes = keyof SearchData
