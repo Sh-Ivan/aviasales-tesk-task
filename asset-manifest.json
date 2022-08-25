@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/aviasales-tesk-task/static/css/main.14acefbd.css",
-    "main.js": "/aviasales-tesk-task/static/js/main.355f9200.js",
+    "main.css": "/aviasales-tesk-task/static/css/main.6c197915.css",
+    "main.js": "/aviasales-tesk-task/static/js/main.2e5ed5c5.js",
     "static/media/Logo.svg": "/aviasales-tesk-task/static/media/Logo.fbec1d9cb9e517753f7292c1cca296c4.svg",
-    "static/media/Swap.svg": "/aviasales-tesk-task/static/media/Swap.ad2bd77ae18e5f88aca815763fdafeb2.svg",
-    "static/media/SwapHowered.svg": "/aviasales-tesk-task/static/media/SwapHowered.7b832244a6b5189f03bc4471107bf1f9.svg",
+    "static/media/Swap.svg": "/aviasales-tesk-task/static/media/Swap.6bbf509e9f1ecc9b39290e83855c6ff1.svg",
+    "static/media/SwapHowered.svg": "/aviasales-tesk-task/static/media/SwapHowered.f51ed831b0a8449d844c396af560b14e.svg",
     "index.html": "/aviasales-tesk-task/index.html",
-    "main.14acefbd.css.map": "/aviasales-tesk-task/static/css/main.14acefbd.css.map",
-    "main.355f9200.js.map": "/aviasales-tesk-task/static/js/main.355f9200.js.map"
+    "main.6c197915.css.map": "/aviasales-tesk-task/static/css/main.6c197915.css.map",
+    "main.2e5ed5c5.js.map": "/aviasales-tesk-task/static/js/main.2e5ed5c5.js.map"
   },
   "entrypoints": [
-    "static/css/main.14acefbd.css",
-    "static/js/main.355f9200.js"
+    "static/css/main.6c197915.css",
+    "static/js/main.2e5ed5c5.js"
   ]
 }
