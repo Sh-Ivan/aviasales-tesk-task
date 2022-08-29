@@ -18,10 +18,10 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
-test('load tickets', async () => {
+test('Show more tickets', async () => {
   renderWithProviders(<MainBlock />)
   expect(screen.getByText('4 100 Р')).toBeInTheDocument()
-  fireEvent.click(screen.getByText('показать еще 5 билето'))
-  await waitFor(() => screen.getByText('68 900 Р'))
+  fireEvent.click(screen.getByText('показать еще 5 билетов'))
+  await waitFor(() => screen.getByText('12 300 Р'))
   expect(screen.getByText('20 700 Р')).toBeInTheDocument()
 })
