@@ -1,7 +1,7 @@
 import React from 'react'
-import { useAppDispatch } from '../../../../store/hooks'
-import { fetchTickets } from '../../../../store/slices/ticketSlice'
-import Button from '../../../Shared/Button/Button'
+import { useAppDispatch } from '../../../store/hooks'
+import { fetchTickets } from '../../../store/slices/ticketSlice'
+import Button from '../../Shared/Button'
 import './ErrorBlock.scss'
 
 const ErrorBlock = () => {

@@ -22,3 +22,19 @@ div.search-block {
     top: 10px;
   }
 }
+
+@media screen and (max-width: 992px) {
+  div.search-block {
+    width: 502px;
+    flex-wrap: wrap;
+    height: 140px;
+
+    & .search-item {
+      width: 48%;
+    }
+
+    & .swap-button {
+      left: 230px;
+    }
+  }
+}

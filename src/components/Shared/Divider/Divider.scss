@@ -4,3 +4,9 @@ div.block-divider {
   width: 754px;
   margin: 24px 0 25px 0;
 }
+
+@media screen and (max-width: 992px) {
+  div.block-divider {
+    width: 502px;
+  }
+}

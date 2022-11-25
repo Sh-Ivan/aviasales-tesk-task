@@ -1,0 +1,13 @@
+@import '../TicketCard/TicketCard.scss';
+
+.error-tickets {
+  @include ticket-card();
+
+  button {
+    width: 200px;
+  }
+}
+
+.error-tickets__title {
+  text-align: center;
+}

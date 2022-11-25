@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useAppDispatch, useAppSelector } from '../../../store/hooks'
+import { changeSortingOrder, sortingSelector } from '../../../store/slices/sortingSlice'
 import Button from '../../Shared/Button'
 import './SortingBlock.scss'
 
@@ -17,11 +19,12 @@ const sortingButtons: ISortingButtons[] = [
 ]
 
 const SortingBlock = () => {
-  const [sorting, setSorting] = useState(sortingButtons[0].name)
+  const sorting = useAppSelector(sortingSelector)
+  const dispatch = useAppDispatch()
 
   const handleSortingChange = (e: React.MouseEvent, name: string) => {
     e.preventDefault()
-    setSorting(name)
+    dispatch(changeSortingOrder(name))
   }
 
   return (
@@ -32,7 +35,7 @@ const SortingBlock = () => {
             key={button.name}
             buttonText={button.text}
             name={button.name}
-            active={button.name === sorting}
+            active={button.name === sorting.order}
             handleClick={handleSortingChange}
           />
         )

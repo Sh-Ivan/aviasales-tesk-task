@@ -1,21 +1,22 @@
 import React from 'react'
+import { useAppDispatch } from '../../../store/hooks'
+import { changeTransfer } from '../../../store/slices/filtersSlice'
+import { Transfers } from '../../../types/Filters'
 import './CheckBox.scss'
 
-export interface IFilter {
-  name: string
-  type: number
-  checked: boolean
-}
-
 interface CheckBoxProps {
-  filter: IFilter
-  handleClick: (e: React.MouseEvent, type: number) => void
+  filter: Transfers
 }
 
-const CheckBox = ({ filter, handleClick }: CheckBoxProps) => {
+const CheckBox = ({ filter }: CheckBoxProps) => {
+  const dispatch = useAppDispatch()
+
   const handleChange = (e: React.MouseEvent) => {
-    handleClick(e, filter.type)
+    e.preventDefault()
+    dispatch(changeTransfer(filter.type))
   }
+
+  const classNames = filter.checked ? 'checkbox__border checked' : 'checkbox__border'
 
   return (
     <div className='filters__item' onClick={handleChange}>
@@ -27,7 +28,7 @@ const CheckBox = ({ filter, handleClick }: CheckBoxProps) => {
           id={'transition_' + filter.type}
           className='checkbox__input'
         />
-        <span className={filter.checked ? 'checkbox__border checked' : 'checkbox__border'}></span>
+        <span className={classNames}></span>
         {filter.name}
       </label>
     </div>

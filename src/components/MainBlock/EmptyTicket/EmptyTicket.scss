@@ -1,0 +1,9 @@
+@import '../TicketCard/TicketCard.scss';
+
+.empty-tickets {
+  @include ticket-card;
+}
+
+.empty-tickets__title {
+  text-align: center;
+}
