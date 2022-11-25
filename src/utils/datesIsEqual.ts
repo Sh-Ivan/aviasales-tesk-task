@@ -1,4 +1,4 @@
-export const datesIsEqual = (a: string, b: string) => {
+export const datesIsEqual = (a: string | Date, b: string | Date) => {
   const date1 = new Date(a)
   if (!(date1 instanceof Date) || !date1.getTime()) {
     return false
